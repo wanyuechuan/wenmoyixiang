@@ -1,0 +1,455 @@
+body{
+    overflow-x: hidden;
+}
+#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    background-color: white;
+    padding: 10px 0;
+    transition: all 0.5s;
+    width: 100%;
+    position: relative;
+}
+
+#header .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 999;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    padding: 10px 0;
+    height: 70px;
+    background-color: #fff;
+    transition: all 0.5s;
+}
+
+
+#header .logo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header .logo h1 {
+    font-size: 28px;
+    margin: 0;
+    padding: 10px 0;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+
+#header .nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header .menu {
+    display: none;
+    transition: all 0.5s;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+#header .menu i {
+    font-size: 45px;
+    padding: 0 10px;
+    cursor: pointer;
+    color: #1c5c93;
+}
+
+.nav-items {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0;
+}
+
+.nav-items .nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+}
+
+.nav-items .nav-item a {
+    display: block;
+    position: relative;
+    color: #5c768d;
+    padding: 12px 15px;
+    transition: 0.3s;
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+}
+
+#header .logo h1 a,
+.nav-items .nav-item a:hover {
+    color: #428bca;
+    text-decoration: none;
+}
+
+/* section */
+#hero {
+    width: 100%;
+    height: calc(100vh - 114px);
+    overflow: hidden;
+    padding: 0;
+}
+
+#hero .hero-conteinaer {
+    width: 100%;
+    height: 100%;
+}
+
+.hero-conteinaer .container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    height: calc(100vh - 114px);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.hero-conteinaer .container .spinner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.hero-conteinaer .container .spinner .spinner-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+}
+
+.hero-conteinaer .container .spinner .spinner-item .content {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+}
+
+.hero-conteinaer .container .spinner .spinner-item .content h2 {
+    color: white;
+    font-size: 45px;
+    margin-bottom: 20px;
+    transform: rotate(0deg);
+}
+
+.hero-conteinaer .container .spinner .spinner-item .content p {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    left: 2%;
+}
+
+.hero-conteinaer .container .spinner .spinner-item .content button {
+    color: white;
+    border: 0;
+    background: 0;
+    background-color: rgb(100, 139, 255);
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    padding: 20px;
+    font-size: 15px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    outline: none;
+}
+
+.hero-conteinaer .container .spinner .s-active {
+    display: block;
+}
+
+
+
+.choice {
+    z-index: 998;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    list-style: none;
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.choice li {
+    width: 30px;
+    height: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: rgba(148, 148, 148, 0.4);
+    cursor: pointer;
+}
+
+.c-active {
+    background-color: rgb(255, 255, 255) !important;
+}
+
+.hero-conteinaer .container .left,
+.hero-conteinaer .container .right {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.hero-conteinaer .container .left {
+    left: 0px;
+    top: 0px;
+}
+
+.hero-conteinaer .container .right {
+    right: 0px;
+    top: 0px;
+}
+
+.hero-conteinaer .container svg {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: all 0.2s;
+    z-index: 100;
+}
+
+.hero-conteinaer .container svg:hover {
+    opacity: 1;
+}
+
+.hero-conteinaer .container .right svg {
+    transform: rotateZ(180deg);
+}
+
+/* 主内容 */
+section {
+    padding: 60px 0;
+}
+#main .container h2{
+    border-bottom: 5px solid rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+#main .section-bg {
+    background: #f5f9fc;
+}
+
+#main .section-bg .container .row {
+    display: flex;
+    justify-content: center;
+}
+
+#main .section-bg .container .row a:hover {
+    text-decoration: none;
+}
+
+#main .section-bg .container .row a:focus {
+    text-decoration: none;
+}
+
+#main .section-bg .container .row .count-box {
+    box-shadow: 0px 0 16px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    background: #fff;
+    margin-bottom: 30px;
+}
+
+#main .section-bg .container .row .count-box h3 {
+    font-size: 42px;
+    display: block;
+    font-weight: 700;
+    color: #1c5c93;
+}
+
+#main .section-bg .container .row .count-box i {
+    display: block;
+    font-size: 64px;
+    margin-bottom: 15px;
+}
+
+#main .articleContainer .container .columns {
+    width: 100%;
+    display: flex;
+    height: 400px;
+
+}
+
+#main .articleContainer .container .columns .column {
+    flex: 1;
+    padding: 0 5px;
+    margin: 0 5px;
+    background-color: #fff;
+}
+
+#main .articleContainer .container .columns .column .article {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#main .articleContainer .container .columns .column .article .a-item {
+    height: 25%;
+    border-bottom: 1px solid #eee;
+    margin: 0;
+    padding: 10px;
+
+}
+
+#main .articleContainer .container .columns .column .article .a-item .article-title {
+    font-weight: bold;
+    font-size: 22px;
+    height: 20%;
+    margin: 0;
+    padding: 0;
+}
+
+#main .articleContainer .container .columns .column .article .a-item .article-content {
+    width: 100%;
+    overflow: hidden;
+    margin: 10px 0px;
+    padding: 0;
+    font-size: 17px;
+}
+
+#main .articleContainer .container .columns .column .article a {
+    color: #1f3548;
+}
+
+#main .articleContainer .container .columns .column .article a:hover,
+#main .articleContainer .container .columns .column .article a:focus {
+    text-decoration: none;
+}
+
+#main .articleContainer .container .articleContent {
+    margin-top: 10px;
+    height: 250px;
+    display: flex;
+    padding-left: 0;
+    padding-right: 0;
+    box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.05);
+    overflow: hidden;
+}
+#main .articleContainer .container .articleContent:nth-child(odd){
+    flex-direction: row-reverse;
+}
+
+#main .articleContainer .container .articleContent .article-cover {
+    flex: 1;
+}
+
+#main .articleContainer .container .articleContent .article-cover .cover {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+#main .articleContainer .container .articleContent .article-brief {
+    flex: 2;
+    padding: 10px 15px;
+    width: 50%;
+}
+#main .articleContainer .container .articleContent .article-brief .recent-info{
+    width: 80%;
+    padding: 40px;
+}
+#main .articleContainer .container .articleContent .article-brief .recent-info .content {
+    margin-top: 10px;
+    font-size: 15px;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+/* 自适应导航栏 */
+.menu-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+    overflow-y: auto;
+    left: -260px;
+    width: 260px;
+    padding-top: 18px;
+    background: #1f3548;
+    transition: 0.4s;
+}
+
+.menu-container ul li {
+    padding: 10px;
+    font-size: 20px;
+}
+
+.active {
+    color: #428bca !important;
+}
+
+.menu-container ul li a {
+    color: white;
+}
+
+.menu-container ul li a:hover {
+    text-decoration: none;
+}
+
+.menu-container ul li a:focus {
+    text-decoration: none;
+}
+
+.masking {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0px;
+    z-index: 9997;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.masking .back {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 9998;
+
+}
+
+.line {
+    height: 100%;
+    width: 3px;
+    background-color: rgb(228, 228, 228);
+}

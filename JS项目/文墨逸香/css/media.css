@@ -1,0 +1,31 @@
+@media screen and (max-width:768px) {
+    #header .container .nav {
+        display: none;
+    }
+
+    #header .container .menu {
+        display: flex;
+
+    }
+
+    #main .articleContainer .container .articleContent {
+        flex-direction: column !important;
+        height: auto;
+    }
+
+    #main .articleContainer .container .articleContent .article-cover {
+        order: 0;
+        -webkit-box-ordinal-group: 0;
+        -moz-box-ordinal-group: 0;
+        -o-box-ordinal-group: 0;
+        -ms-flex-order: 0;
+    }
+
+    #main .articleContainer .container .articleContent .article-brief {
+        width: 100%;
+    }
+    #main .articleContainer .container .articleContent .article-brief .recent-info {
+        width: 100%;
+
+    }
+}
