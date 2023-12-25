@@ -160,73 +160,65 @@
                 
                  */
 
-                 let articleContent = $('<div class="container articleContent" data-aos="flip-up"></div>');
-                 let articleCover = $('<div class="article-cover"></div>');
-                 let articleCoverA = $('<a></a>');
-                 let articleCoverImg = $('<img class="cover"></img>');
-                 let articleBrief = $('<div class="article-brief"></div>');
-                 let recentInfo = $('<div class="recent-info"></div>');
-                 let recentInfoTitle = $('<div class="title"></div>');
-                 let recentInfoTitleH3 = $('<h3 class="title"></h3>');
-                 let recentInfoTitleH3A = $('<a></a>');
-                 let recentInfoTitleInfo = $('<div class="info"></div>');
-                 let iconfont = $(' <i class="iconfont icon-riqi2"></i>');
-                 let span = $('<span class="base-info"></span>');
-                 let iconfont2 = $(' <i class="iconfont icon-grouping"></i>');
-                 let span2 = $('<span class="base-info"></span>');
-                 let content = $(' <div class="content"></div>');
+                 let articleContent = $('<div class="container articleContent" data-aos="flip-up">');
+                 let articleCover = $('<div class="article-cover">');
+                 let articleCoverA = $('<a>');
+                 let articleCoverImg = $('<img class="cover">');
+                 let articleBrief = $('<div class="article-brief">');
+                 let recentInfo = $('<div class="recent-info">');
+                 let recentInfoTitle = $('<div class="title">');
+                 let recentInfoTitleH3 = $('<h3 class="title">');
+                 let recentInfoTitleH3A = $('<a>');
+                 let recentInfoTitleInfo = $('<div class="info">');
+                 let iconfont = $(' <i class="iconfont icon-riqi2">');
+                 let span = $('<span class="base-info">');
+                 let iconfont2 = $(' <i class="iconfont icon-grouping">');
+                 let span2 = $('<span class="base-info">');
+                 let content = $(' <div class="content">');
 
 
+                 console.log(element);
+                 $(articleCoverA).attr("href", "./readMain.html?aid=" + element.id);
 
-                 $(articleCoverA).attr("href",element.contentUrl);
-
-                 $(articleCoverImg).attr("src",element.coverUrl);
+                 $(articleCoverImg).attr("src", element.coverUrl);
 
                  console.log(articleCoverImg);
                  articleCoverA.append(articleCoverImg);
                  console.log(articleCoverA);
                  articleCover.append(articleCoverA);
-                /* <div class="article-brief">
-                    <div class="recent-info">
-                        <div class="title">
-                            <h3><a href="#">关于JVM实现原理及实现方法11111111111111111111111111111111111111111111111111111111111111111</a></h3>
-                            <div class="info">
-                                <i class="iconfont icon-riqi2"></i><span class="base-info"> 发布时间:2023年11月20日</span>
-                                <i class="iconfont icon-grouping"></i> <span class="base-info">分类:java</span>
-                            </div>
-                        </div>
-                        <div class="content">
-                            VM是虚拟机,也是一种规范,他遵循着冯·诺依曼体系结构的设计原理。冯·诺依曼体系结构中,指出计算机处理的数据和指令都是二进制数,采用存储程序方式不加区分的存储在同一个存储器里,并且顺序执行,指令由操作码和地址码组成
-                        </div>
-                    </div>
-                </div> */
-                
+
                  recentInfoTitleH3A.text(element.name);
-                 recentInfoTitleH3A.href = element.contentUrl;
+
+                 recentInfoTitleH3A.attr("href", "./readMain.html?aid=" + element.id)
+
                  recentInfoTitleH3.append(recentInfoTitleH3A)
                  recentInfoTitle.append(recentInfoTitleH3);
 
                  recentInfoTitleInfo.append(iconfont);
                  span.text("发布时间:" + element.createTime);
                  recentInfoTitleInfo.append(span);
-                 recentInfoTitleInfo.append(iconfont2);
-                 span2.text("分类:" + element.category);
+
+                 if (element.category) {
+                     recentInfoTitleInfo.append(iconfont2);
+
+                     span2.text("分类:" + element.category);
+                 }
                  recentInfoTitleInfo.append(span2);
 
                  recentInfoTitle.append(recentInfoTitleInfo);
 
                  recentInfo.append(recentInfoTitle);
-                 
+
                  content.text("123");
                  recentInfo.append(content);
 
 
 
                  articleBrief.append(recentInfo);
-                
+
                  articleContent.append(articleCover);
                  articleContent.append(articleBrief);
-                
+
                  $("#content-inner").append(articleContent);
 
 
@@ -238,6 +230,9 @@
              console.log(err);
          }
      })
+
+
+
 
  });
 

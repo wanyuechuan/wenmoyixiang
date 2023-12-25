@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/normal.css">
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./css/venobox.css">
+    <link rel="stylesheet" href="./css/aos.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4318370_v8dtayvlk4.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/media.css">
+    <link rel="stylesheet" href="./css/readMain.css">
+    <link rel="stylesheet" href="./css/prism.css">
+    <script src="https://cdn.bootcss.com/marked/0.8.1/marked.min.js"></script>
+
+</head>
+
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <h1 class="text-light"><a href="javaScript:;">文墨逸香</a></h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-items">
+                    <li class="nav-item"><a href="javaScript:;" class="active">首页</a></li>
+                    <li class="nav-item"><a href="javaScript:;">文章精选</a></li>
+                    <li class="nav-item"><a href="javaScript:;">文章排行</a></li>
+                    <li class="nav-item"><a href="javaScript:;">关于</a></li>
+                </ul>
+            </nav>
+            <div class="menu">
+                <i class="iconfont icon-menu"></i>
+            </div>
+        </div>
+    </header>
+    <main class="container" id="content">
+        <div class="title">
+            <h1>标题内容</h1>
+            <p><i class="iconfont icon-riqi2"></i> <span class="subtitle">发表于 2023-12-14</span>| <i class="iconfont icon-zuixingengxin"></i> <span class="subtitle">更新于 2023-12-14 </span>|<i class="iconfont icon-grouping"></i> <span class="subtitle">分类：java </span>                </p>
+            <p><i class="iconfont icon-liulan"></i><span class="subtitle">阅读量:100</span></p>
+        </div>
+        <div class="article-content markdown-body">
+
+        </div>
+    </main>
+
+
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        let parrameter = location.href.substring(location.href.lastIndexOf("?"));
+        let aId = parrameter.split("=")[1];
+
+
+        if (aId) {
+            $.ajax({
+                url: "http://localhost:9998/api/article/articles/" + aId,
+                method: "get",
+                asysn: true,
+                success: (res) => {
+                    if (res.data) {
+                        
+                    }
+
+                    console.log(res);
+                    // 设置标题
+                    $(".title h1").text(res.data.name);
+                    $(".title .subtitle").eq(0).text("发布日期: " + res.data.createTime);
+                    if (res.data.lastUpdateTime) {
+                        $(".title .subtitle").eq(1).text("更新日期: " + res.data.lastUpdateTime);
+                    } else {
+                        $(".title .subtitle").eq(1).text("更新日期: " + res.data.createTime);
+
+                    }
+                    $(".title .subtitle").eq(2).text("分类: " + res.data.createTime);
+                    $(".title .subtitle").eq(3).text("阅读量: " + res.data.createTime);
+
+                    getContent(res.data.contentUrl);
+                },
+                error: (err) => {
+                    console.log(err);
+                }
+            })
+        }else{
+            location.replace("./404.html");
+        }
+
+
+        function getContent(sourceUrl) {
+            $.ajax({
+                url: sourceUrl,
+                method: "get",
+                asysn: true,
+                success: (res) => {
+                    $(".article-content").html(marked(res));
+                    const script = $("<script>");
+                    script.attr("src", "./js/prism.js");
+                    script.attr("type", "text/javascript");
+                    $("body").append(script);
+                },
+                error: (err) => {
+                    console.log(err);
+                }
+            })
+        }
+
+
+        /*   $.ajax({
+              url: "http://localhost:9998/UserUpload/2023-12-24/8e39d1669f2b4d71a4873c75c919150f.md",
+              method: "get",
+              asysn: true,
+              success: (res) => {
+                  $(".article-content").html(marked(res));
+                  const script = $("<script>");
+                  script.attr("src", "./js/prism.js");
+                  script.attr("type", "text/javascript");
+                  $("body").append(script);
+              },
+              error: (err) => {
+                  console.log(err);
+              }
+          }) */
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #DBE6F6;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #C5796D, #DBE6F6);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #C5796D, #DBE6F6);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        
+        .container {
+            width: 1280px;
+            height: 720px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: url("./images/404.png") no-repeat 0 0 / cover;
+        }
+        
+        .return {
+            width: 120px;
+            height: 40px;
+            border: 0;
+            background: 0;
+            border: 1px solid #6c5ce7;
+            border-radius: 7px;
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            color: #fff;
+            background-color: #6c5ce7;
+            transition: all 0.4s;
+        }
+        
+        .return:hover {
+            background-color: #6454db;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="return">返回首页</button>
+    </div>
+</body>
+
+</html>
