@@ -43,7 +43,11 @@
     <main class="container" id="content">
         <div class="title">
             <h1>标题内容</h1>
-            <p><i class="iconfont icon-riqi2"></i> <span class="subtitle">发表于 2023-12-14</span>| <i class="iconfont icon-zuixingengxin"></i> <span class="subtitle">更新于 2023-12-14 </span>|<i class="iconfont icon-grouping"></i> <span class="subtitle">分类：java </span>                </p>
+            <div class="in">
+                <div class="sub-box"><i class="iconfont icon-riqi2"></i> <span class="subtitle">发表于 2023-12-14</span></div>|
+                <div class="sub-box"> <i class="iconfont icon-zuixingengxin"></i> <span class="subtitle">更新于 2023-12-14 </span></div>|
+                <div class="sub-box"><i class="iconfont icon-grouping"></i> <span class="subtitle">分类：java </span> </div>
+            </div>
             <p><i class="iconfont icon-liulan"></i><span class="subtitle">阅读量:100</span></p>
         </div>
         <div class="article-content markdown-body">
@@ -64,33 +68,38 @@
                 method: "get",
                 asysn: true,
                 success: (res) => {
-                    if (res.data) {
-                        
-                    }
+                    if (res.code === "200") {
+                        console.log(res);
+                        // 设置标题
+                        $(".title h1").text(res.data.name);
+                        $(".title .subtitle").eq(0).text("发布日期: " + res.data.createTime);
+                        if (res.data.lastUpdateTime) {
+                            $(".title .subtitle").eq(1).text("更新日期: " + res.data.lastUpdateTime);
+                        } else {
+                            $(".title .subtitle").eq(1).text("更新日期: " + res.data.createTime);
 
-                    console.log(res);
-                    // 设置标题
-                    $(".title h1").text(res.data.name);
-                    $(".title .subtitle").eq(0).text("发布日期: " + res.data.createTime);
-                    if (res.data.lastUpdateTime) {
-                        $(".title .subtitle").eq(1).text("更新日期: " + res.data.lastUpdateTime);
+                        }
+                        $(".title .subtitle").eq(2).text("分类: " + res.data.createTime);
+                        $(".title .subtitle").eq(3).text("阅读量: " + res.data.createTime);
+
+                        getContent(res.data.contentUrl);
                     } else {
-                        $(".title .subtitle").eq(1).text("更新日期: " + res.data.createTime);
-
+                        redirect();
                     }
-                    $(".title .subtitle").eq(2).text("分类: " + res.data.createTime);
-                    $(".title .subtitle").eq(3).text("阅读量: " + res.data.createTime);
-
-                    getContent(res.data.contentUrl);
                 },
                 error: (err) => {
                     console.log(err);
                 }
             })
-        }else{
-            location.replace("./404.html");
+        } else {
+            redirect();
         }
 
+
+        function redirect() {
+            location.replace("./404.html");
+
+        }
 
         function getContent(sourceUrl) {
             $.ajax({

@@ -46,13 +46,33 @@
         .return:hover {
             background-color: #6454db;
         }
+        .tips{
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 26px;
+            color: white;
+            font-weight: bold;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
+        <div class="tips">出错了！找不到该页面!(将在3秒后跳转到首页)</div>
         <button class="return">返回首页</button>
     </div>
+
+
+    <script>
+        document.querySelector(".return").addEventListener("click",()=>{
+            location.href = "./index.html";
+        })
+        setTimeout(()=>{
+            location.href = "./index.html";
+        },3000);
+    </script>
 </body>
 
 </html>

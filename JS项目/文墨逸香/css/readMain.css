@@ -24,3 +24,10 @@
     margin: 10px auto;
     border-radius: 10px;
 }
+#content .sub-box{
+    display: inline-block;
+    margin: 0 10px;
+}
+#content .iconfont{
+    margin-right: 5px;
+}
