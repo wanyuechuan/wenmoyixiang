@@ -1,4 +1,7 @@
- // 轮播图
+
+ // aos动画
+ AOS.init();
+// 轮播图
  $("document").ready(() => {
 
      // 数据集
@@ -236,7 +239,7 @@
              if (element.category) {
                  recentInfoTitleInfo.append(iconfont2);
 
-                 span2.text("分类:" + element.category);
+                 span2.text("分类:" + element.category.name);
              }
              recentInfoTitleInfo.append(span2);
 
@@ -267,5 +270,3 @@
 
 
 
- // aos动画
- AOS.init();
